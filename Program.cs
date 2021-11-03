@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate;
+using System;
 
 namespace MovieRevenue
 {
@@ -6,7 +7,17 @@ namespace MovieRevenue
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+
+            using (ISession session = SessionFactory.OpenSession()) {
+                var data = session.QueryOver<Factory.Entity.Movie>().List();
+                foreach (var item in data) {
+                    /*Show All movie titles in database*/
+                    Console.WriteLine(item.title);
+                }
+            }
+
+
         }
     }
 }

@@ -4,3 +4,4 @@
 [Wikipedia Source](https://en.wikipedia.org/wiki/List_of_highest-grossing_films "highest-grossing films")
 ### Dependencies
 * Nuget `System.Data.SqlClient` version 4.8.3
+* Nuget `FluentNHibernate` version 3.1.0
