@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieRevenue
+namespace Factory.MovieRevenue
 {
-    class SessionFactory
+    public class SessionFactory
     {
         public static ISession OpenSession()
         {
@@ -25,7 +25,6 @@ namespace MovieRevenue
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }

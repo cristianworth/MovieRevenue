@@ -1,21 +1,19 @@
-﻿using NHibernate;
+﻿using Factory.MovieRevenue;
+using MovieRevenue.Service;
+using NHibernate;
 using System;
+using System.IO;
 
 namespace MovieRevenue
 {
     class Program
     {
+        private static MovieService _movieService = new MovieService();
         static void Main(string[] args)
         {
 
 
-            using (ISession session = SessionFactory.OpenSession()) {
-                var data = session.QueryOver<Factory.Entity.Movie>().List();
-                foreach (var item in data) {
-                    /*Show All movie titles in database*/
-                    Console.WriteLine(item.title);
-                }
-            }
+            _movieService.CreateExcelFile(@"C:\AALLL\MoviesRevenue.xlsx");
 
 
         }

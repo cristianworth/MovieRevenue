@@ -5,3 +5,4 @@
 ### Dependencies
 * Nuget `System.Data.SqlClient` version 4.8.3
 * Nuget `FluentNHibernate` version 3.1.0
+* Nuget `ClosedXML` version 0.95.4
