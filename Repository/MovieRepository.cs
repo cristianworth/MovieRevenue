@@ -12,6 +12,7 @@ namespace MovieRevenue.Repository
     public class MovieRepository
     {
 
+
         public IList<Movie> GetAllMovies()
         {
             using (ISession session = SessionFactory.OpenSession())

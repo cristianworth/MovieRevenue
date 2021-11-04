@@ -13,7 +13,8 @@ namespace MovieRevenue
         {
 
 
-            _movieService.CreateExcelFile(@"C:\AALLL\MoviesRevenue.xlsx");
+            _movieService.SaveMoviePdf(@"C:\AALLL\MoviesRevenue.pdf");
+            _movieService.SaveMovieExcel(@"C:\AALLL\MoviesRevenue.xlsx");
 
 
         }
