@@ -47,7 +47,7 @@ namespace MovieRevenue.Service
             foreach (var m in movies)
             {
                 ws.Cell(row, "A").SetValue(m.title);
-                ws.Cell(row, "B").SetValue(m.Studio.name);
+                ws.Cell(row, "B").SetValue(m.Studio?.name ?? "");
                 ws.Cell(row, "C").SetValue(m.revenue);
                 ws.Cell(row, "D").SetValue(m.year_release);
                 row++;

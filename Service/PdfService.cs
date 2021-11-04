@@ -48,7 +48,7 @@ namespace MovieRevenue.Service
                 body.AddCell(titleColumn);
 
                 var studioColumn = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
-                studioColumn.AddElement(new Paragraph(m.Studio.name, font));
+                studioColumn.AddElement(new Paragraph(m.Studio?.name ?? "", font));
                 body.AddCell(studioColumn);
 
                 var revenueColumn = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };

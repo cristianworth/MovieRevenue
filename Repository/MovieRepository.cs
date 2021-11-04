@@ -11,7 +11,7 @@ using NHibernate.Transform;
 
 namespace MovieRevenue.Repository
 {
-    public class MovieRepository
+    public class MovieRepository : RepositoryBase<Movie>
     {
 
 
