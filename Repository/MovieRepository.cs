@@ -17,7 +17,9 @@ namespace MovieRevenue.Repository
         {
             using (ISession session = SessionFactory.OpenSession())
             {
-                return session.QueryOver<Movie>().List();
+                var query = session.QueryOver<Movie>();
+                query.Left.JoinQueryOver(x => x.Studio);
+                return query.List();
             }
         }
 

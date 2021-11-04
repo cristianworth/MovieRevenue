@@ -36,7 +36,7 @@ namespace MovieRevenue.Service
             header.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
             header.Style.Fill.SetBackgroundColor(XLColor.LightGray);
 
-            ws.Column("A").Width = 30;
+            ws.Columns("A,B").Width = 30;
             ws.Column("C").Width = 15;
         }
 
@@ -47,7 +47,7 @@ namespace MovieRevenue.Service
             foreach (var item in data)
             {
                 ws.Cell(row, 1).SetValue(item.title);
-                ws.Cell(row, 2).SetValue("");
+                ws.Cell(row, 2).SetValue(item.Studio.name);
                 ws.Cell(row, 3).SetValue(item.revenue);
                 ws.Cell(row, 4).SetValue(item.year_release);
                 row++;

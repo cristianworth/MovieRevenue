@@ -17,6 +17,7 @@ namespace MovieRevenue.Factory.Mapping
             Map(x => x.title);
             Map(x => x.year_release);
             Map(x => x.revenue);
+            References(x => x.Studio).Column("studio_id");
         }
     }
 }
