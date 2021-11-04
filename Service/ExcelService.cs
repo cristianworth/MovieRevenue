@@ -42,14 +42,14 @@ namespace MovieRevenue.Service
 
         public void BuildSheetBody()
         {
-            var data = _movieRepository.GetAllMovies();
+            var movies = _movieRepository.GetAllMovies();
             int row = ws.LastRowUsed().RowNumber() + 1;
-            foreach (var item in data)
+            foreach (var m in movies)
             {
-                ws.Cell(row, 1).SetValue(item.title);
-                ws.Cell(row, 2).SetValue(item.Studio.name);
-                ws.Cell(row, 3).SetValue(item.revenue);
-                ws.Cell(row, 4).SetValue(item.year_release);
+                ws.Cell(row, "A").SetValue(m.title);
+                ws.Cell(row, "B").SetValue(m.Studio.name);
+                ws.Cell(row, "C").SetValue(m.revenue);
+                ws.Cell(row, "D").SetValue(m.year_release);
                 row++;
             }
         }

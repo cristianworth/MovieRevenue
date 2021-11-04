@@ -24,43 +24,43 @@ namespace MovieRevenue.Service
 
         public PdfPTable PdfHeader()
         {
-            PdfPTable table = new PdfPTable(4);
-            table.WidthPercentage = 100;
+            PdfPTable header = new PdfPTable(4);
+            header.WidthPercentage = 100;
 
             string[] columns = { "MOVIE", "STUDIO", "REVENUE", "YEAR" };
             foreach (var c in columns) {
                 var column = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.BOX };
                 column.AddElement(new Paragraph(c, fontBold));
-                table.AddCell(column);
+                header.AddCell(column);
             }
 
-            return table;
+            return header;
         }
 
         public PdfPTable PdfBody() {
-            PdfPTable table = new PdfPTable(4);
-            table.WidthPercentage = 100;
+            PdfPTable body = new PdfPTable(4);
+            body.WidthPercentage = 100;
 
-            var data = _movieRepository.GetAllMovies();
-            foreach (var d in data) {
-                var column1 = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
-                column1.AddElement(new Paragraph(d.title, font));
-                table.AddCell(column1);
+            var movies = _movieRepository.GetAllMovies();
+            foreach (var m in movies) {
+                var titleColumn = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
+                titleColumn.AddElement(new Paragraph(m.title, font));
+                body.AddCell(titleColumn);
 
-                var column2 = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
-                column2.AddElement(new Paragraph(d.Studio.name, font));
-                table.AddCell(column2);
+                var studioColumn = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
+                studioColumn.AddElement(new Paragraph(m.Studio.name, font));
+                body.AddCell(studioColumn);
 
-                var column3 = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
-                column3.AddElement(new Paragraph(d.revenue.ToString("n2"), font));
-                table.AddCell(column3);
+                var revenueColumn = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
+                revenueColumn.AddElement(new Paragraph(m.revenue.ToString("n2"), font));
+                body.AddCell(revenueColumn);
 
-                var column4 = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
-                column4.AddElement(new Paragraph(d.year_release.ToString(), font));
-                table.AddCell(column4);
+                var yearColumn = new PdfPCell() { Colspan = 1, VerticalAlignment = Element.ALIGN_LEFT, Border = Rectangle.NO_BORDER };
+                yearColumn.AddElement(new Paragraph(m.year_release.ToString(), font));
+                body.AddCell(yearColumn);
             }
 
-            return table;
+            return body;
         }
     }
 }
